@@ -52,4 +52,9 @@ class ProfilesController extends Controller
         
         return redirect("/profile/{$user->id}");
     }
+
+    public function followers(){
+
+        return $this->belongsToMany(User::class);
+    }
 }
