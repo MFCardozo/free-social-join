@@ -3,18 +3,37 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\support\Facades\Cache;
 use Intervention\Image\Facades\Image;
 
 class ProfilesController extends Controller
 {
     public function index(User $user)
     {
-        // dd($user->profile); //todo:solve te problem of user doesnt have profile or posts!!
+        $follows=(auth()->user())? auth()->user()->following->contains($user->id):false;
+
+        $postCount=Cache::remember('counts.posts.' . $user->id,
+        now()->addSeconds(30),
+        function()use ($user){
+            return $user->posts->count();
+        });
+        $followersCount=Cache::remember('counts.followers.' . $user->id,
+        now()->addSeconds(30),
+        function()use ($user){
+            return $user->profile->followers->count();
+        });
+        $followingCount=Cache::remember('counts.following.' . $user->id,
+        now()->addSeconds(30),
+        function()use ($user){
+            return $user->following->count();
+        });
         
-        return view('profiles.index',compact('user'));
+        return view('profiles.index',compact('user','follows','postCount','followersCount','followingCount'));
             
         
     }
+
+    
 
     public function edit(User $user){
      $this->authorize('update',$user->profile);

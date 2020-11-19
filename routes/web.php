@@ -14,14 +14,13 @@ use App\Http\Controllers\{ProfilesController,PostsController,FollowsController};
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
 
 
 
+Route::get('/', [PostsController::class,'index']);
 
 Route::post('follow/{user}',[FollowsController::class,'store']);
 Route::get('/p/create',[PostsController::class,'create']);
