@@ -41,6 +41,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * this function act as an dispatch whenever a user is created
+     * we created a profile to same user
+     */
+
+
+    protected static function boot(){
+
+        parent::boot();
+
+        static::created(function($user){
+            $user->profile()->create([
+                'title'=>$user->username
+            ]);
+        });
+    }
+
      public function posts(){
         return $this->hasMany(Post::class)->orderBy('created_at','DESC');
     }
