@@ -9,8 +9,8 @@
         <div class="row">
             <div class="col-8 offset-2">
 
-                <div class="row">
-                    <h1>Edit Profile</h1>
+                <div class="row text-center d-flex justify-content-center">
+                    <h1 >Edit Profile</h1>
                 </div>
                 <div class="form-group row">
                     <label for="title" class="col-md-4 col-form-label">Title</label>
@@ -73,8 +73,8 @@
                     @endif
                 </div>
 
-                <div class="row pt-4">
-                    <button class="btn btn-primary">Save Profile</button>
+                <div class="row pt-4 d-flex justify-content-center">
+                    <button class="btn btn-secondary">Save Profile</button>
                 </div>
 
             </div>

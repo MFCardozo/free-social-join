@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-8 offset-2">
 
-                <div class="row">
+                <div class="row d-flex justify-content-center">
                     <h1>Add New Post</h1>
                 </div>
                 <div class="form-group row">
@@ -38,8 +38,8 @@
                     @endif
                 </div>
 
-                <div class="row pt-4">
-                    <button class="btn btn-primary">Add New Post</button>
+                <div class="row pt-4 d-flex justify-content-center">
+                    <button class="btn btn-secondary">Add New Post</button>
                 </div>
 
             </div>

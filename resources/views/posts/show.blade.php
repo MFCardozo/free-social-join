@@ -3,23 +3,30 @@
 @section('content')
 <div class="container">
 <div class="row">
-        <div class="col-8">
-            <img src="/storage/{{ $post->image }}" class="w-100" alt={{$post->caption}}>
+        <div class="col-sm-12 col-md-8 pb-1">
+            <img src="/storage/{{ $post->image }}" class="w-100 rounded" alt={{$post->caption}}>
         </div>
-        <div class="col-4">
+        <div class="col-md-4 col-sm-12">
              <div>
-                <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-baseline">
                     <div class="pr-3">
                         <img src="{{$post->user->profile->profileImage()}}" class="rounded-circle w-100" style="max-width: 40px;">
                     </div>
-                    <div>
-                        <div class="font-weight-bold">
+                    
+                        <div class="font-weight-bold d-flex justify-content-between">
                             <a href="/profile/{{ $post->user->id }}">
                                 <span class="text-dark">{{ $post->user->username }}</span>
                             </a>
-                            <a href="#" class="pl-3">Follow</a>
-                        </div>
+                             {{-- cannot follow myself!! --}}
+                         </div>
+                     
                     </div>
+                    
+                      @if(Auth::user()->id!=$post->user->id)
+                        <follow-button  user-id="{{$post->user->id}}" follows="{{$follows}}"></follow-button>
+
+                    @endif
                 </div>
 
                 <hr>
