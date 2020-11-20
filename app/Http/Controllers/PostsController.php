@@ -15,7 +15,7 @@ class PostsController extends Controller
 
     public function index(){
 
-        //plucck find the specific key in array ,that you passed a return the values
+        //pluck find the specific key in array ,that you passed a return the values
 
         $users=auth()->user()->following()->pluck('profiles.user_id');
         
