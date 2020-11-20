@@ -47,7 +47,7 @@ class User extends Authenticatable
     /***
      * this function act as an dispatch whenever a user is created
      * we created a profile to same user
-     */
+     **/
 
 
     protected static function boot(){
