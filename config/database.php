@@ -48,9 +48,9 @@ return [
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', 'db4free.net'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'socialfreejoin'),
-            'username' => env('DB_USERNAME', 'papoypapo'),
-            'password' => env('DB_PASSWORD', 'chinasudoFinder00$'),
+            'database' => env('DB_DATABASE', 'freesocialjoin'),
+            'username' => env('DB_USERNAME', 'manucar'),
+            'password' => env('DB_PASSWORD', 'chinasudofinder'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -58,9 +58,8 @@ return [
             'prefix_indexes' => true,
             'strict' => true,
             'engine' => null,
-            'options' => extension_loaded('pdo_mysql') ? array_filter([
-                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
-            ]) : [],
+            
+            
         ],
 
         'pgsql' => [
