@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 use \App\Models\Post;
 
 class PostsController extends Controller
@@ -44,10 +45,12 @@ class PostsController extends Controller
             'caption'=>'required',
             'image'=>['required','image'],
         ]);
-            $imagePath=request('image')->store('uploads','public');
+            
+            $imagePath="uploads/" . request('image')->hashName();
+           $image=Image::make(request('image'))->fit(1200,1200)->encode('jpg');
 
-            $image=Image::make(public_path("storage/{$imagePath}"))->fit(1200,1200);
-            $image->save();
+           Storage::disk('s3')->put($imagePath,(string)$image);
+            
 
         auth()->user()->posts()->create([
             'caption'=>$data['caption'],

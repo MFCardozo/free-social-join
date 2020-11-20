@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
 class ProfilesController extends Controller
@@ -54,10 +55,11 @@ class ProfilesController extends Controller
         
             if(request('image')){
 
-                $imagePath=request('image')->store('profile','public');
+                $imagePath="profile/" . request('image')->hashName();
 
-                $image=Image::make(public_path("storage/{$imagePath}"))->fit(1000,1000);
-                $image->save();
+                $image=Image::make(request('image'))->fit(1000,1000)->encode('jpg');
+
+                 Storage::disk('s3')->put($imagePath,(string)$image);
                 
                 $imageArray=['image'=>$imagePath];
 

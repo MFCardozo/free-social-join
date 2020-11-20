@@ -14,8 +14,8 @@ class Profile extends Model
 
       //the path is a default image in my storage
 
-      $imagePath=$this->image? $this->image : 'profile/rv2Fag9yuL6Kz5bHYWYgI1yZw7ZtlmoFn8DrOQFt.jpeg';
-      return '/storage/' . $imagePath;
+      $imagePath=$this->image? 'https://freesocialjoin.s3.us-east-2.amazonaws.com/' . $this->image  : 'https://freesocialjoin.s3.us-east-2.amazonaws.com/profile/default.jpg';
+      return  $imagePath;
     }
     public function user(){
 

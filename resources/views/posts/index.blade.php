@@ -10,7 +10,7 @@
     <div class="row py-4 px-2">
         <div class="col-sm-12 col-md-6  offset-md-3  card">
             <a href="../p/{{$post->id}}">
-            <img src="/storage/{{ $post->image }}" class="mw-100 rounded pt-1" alt={{$post->caption}}>
+            <img src="https://freesocialjoin.s3.us-east-2.amazonaws.com/{{ $post->image }}" class="mw-100 rounded pt-1" alt={{$post->caption}}>
                 </a>
              
                 
