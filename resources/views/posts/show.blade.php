@@ -4,7 +4,7 @@
 <div class="container">
 <div class="row">
         <div class="col-sm-12 col-md-8 pb-1">
-            <img src="https://freesocialjoin.s3.us-east-2.amazonaws.com/{{$post->image}}" class="w-100 rounded" alt={{$post->caption}}>
+            <img src="https://freesocialjoin.s3.us-east-2.amazonaws.com/{{$post->image}}" class="w-100 rounded" alt="{{$post->caption}}">
         </div>
         <div class="col-md-4 col-sm-12">
              <div>

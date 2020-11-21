@@ -11,6 +11,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <!--  icons-->
+    
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -23,9 +26,9 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container " >
-                <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                <div><img src="/logo.png" alt="" style="width:120px; height:90px;"></div>
-                <div>Free-Social-Join</div>
+                <a class="navbar-brand d-flex align-items-center m-0 p-0" href="{{ url('/') }}">
+                <div><img src="/logo.png" alt="" style="max-width:90px; height:90px;"></div>
+                <span >Free-Social-Join</span>
                     
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -101,6 +104,18 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <footer class="footer navbar fixed-bottom w-100 ml-5">
+             <div class="container">
+        <a
+          href="https://github.com/ManuMcfly6/phone-ecommerce-pern"
+          class="text-white bg-dark rounded ml-auto p-2"
+        >
+          <i class="fab fa-github"></i>
+          Source Code
+        </a>
+      </div>
+        </footer>
     </div>
 </body>
 </html>
