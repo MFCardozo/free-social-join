@@ -53,7 +53,7 @@
 
     <div class="row pt-5">
         @foreach($user->posts as $post)
-            <div class="col-4 py-2 card">
+            <div class="col-4 py-2 mx-2 card">
                 <a href="../p/{{$post->id}}">
                     <img src="https://freesocialjoin.s3.us-east-2.amazonaws.com/{{$post->image}}" class="w-100 rounded">
                 </a>

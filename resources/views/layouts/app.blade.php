@@ -105,7 +105,7 @@
             @yield('content')
         </main>
 
-        <footer class="footer navbar fixed-bottom w-100 ml-5">
+        <footer class="footer navbar fixed-bottom w-100 ml-4 ml-md-5">
              <div class="container">
         <a
           href="https://github.com/ManuMcfly6/free-social-join"
