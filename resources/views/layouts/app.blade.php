@@ -108,7 +108,7 @@
         <footer class="footer navbar fixed-bottom w-100 ml-5">
              <div class="container">
         <a
-          href="https://github.com/ManuMcfly6/phone-ecommerce-pern"
+          href="https://github.com/ManuMcfly6/free-social-join"
           class="text-white bg-dark rounded ml-auto p-2"
         >
           <i class="fab fa-github"></i>
