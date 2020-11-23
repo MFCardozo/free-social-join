@@ -29,6 +29,23 @@
                     <follow-button user-id="{{$post->user->id}}" follows="{{$follows}}"></follow-button>
 
                     @endif
+
+
+
+                    @if(Auth::user()->id==$post->user->id)
+
+                    <form action="/p/{{$post->id}}" method="post">
+                        @method('DELETE')
+                        @csrf
+                        <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                    </form>
+
+                    @endif
+
+
+
+
+
                 </div>
 
                 <hr>

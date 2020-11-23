@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container">
+
+
+
     <div class="row flex-nowrap">
         <div class="col-md-3 col-sm-1" style="max-width: 25vw;">
             <img src="{{$user->profile->profileImage()}}" class="rounded-circle w-100">

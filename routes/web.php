@@ -25,6 +25,7 @@ Route::get('/', [PostsController::class,'index']);
 Route::post('follow/{user}',[FollowsController::class,'store']);
 Route::get('/p/create',[PostsController::class,'create']);
 Route::get('p/{post}',[PostsController::class,'show']);
+Route::delete('p/{post}',[PostsController::class,'destroy'])->name('post.destroy');
 Route::post('/p',[PostsController::class,'store']);
 
 Route::get('/profile/{user}', [ProfilesController::class, 'index'])->name('profile.show');

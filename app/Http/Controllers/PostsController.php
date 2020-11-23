@@ -62,9 +62,24 @@ class PostsController extends Controller
     }
     public function show(Post $post){
 
+        
+
         $follows=(auth()->user())? auth()->user()->following->contains($post->user->id):false;
 
 
         return view("posts.show",compact('post','follows'));
+    }
+
+    public function destroy(Post $post){
+
+         
+        //remove img from s3
+        Storage::disk('s3')->delete($post->image);
+        $postToDelete=Post::find($post->id);
+
+        $postToDelete->delete();
+
+        return redirect('/profile/' .  auth()->user()->id);
+
     }
 }
