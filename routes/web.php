@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\{ProfilesController,PostsController,FollowsController};
+use App\Http\Controllers\{ProfilesController,PostsController,FollowsController,UserController};
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,3 +31,5 @@ Route::post('/p',[PostsController::class,'store']);
 Route::get('/profile/{user}', [ProfilesController::class, 'index'])->name('profile.show');
 Route::get('/profile/{user}/edit',[ProfilesController::class,'edit'])->name('profile.edit');
 Route::patch('/profile/{user}',[ProfilesController::class,'update'])->name('profile.update');
+
+Route::get('/user/{user}',[UserController::class,'show'])->name('user.show');

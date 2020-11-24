@@ -23,6 +23,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <livewire:styles>
 </head>
 
 <body>
@@ -52,6 +53,9 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        <li class="d-flex align-items-center mb-2 mb-md-0">
+                            <livewire:search-dropdown>
+                        </li>
                         @guest
                         @if (Route::has('login'))
                         <li class="nav-item">
@@ -124,6 +128,7 @@
         </footer>
 
     </div>
+    <livewire:scripts>
 </body>
 
 </html>
