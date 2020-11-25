@@ -53,9 +53,12 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto align-items-baseline" style="flex-direction: row;">
                         <!-- Authentication Links -->
+                        @auth
+
                         <li class="d-flex align-items-center mb-2 mb-md-0">
                             <livewire:search-dropdown>
                         </li>
+                        @endauth
                         @guest
                         @if (Route::has('login'))
                         <li class="nav-item">
