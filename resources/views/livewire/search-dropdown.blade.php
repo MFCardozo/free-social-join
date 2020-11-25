@@ -1,7 +1,13 @@
 <div class="position-relative  mt-3  mt-md-0">
+
     <input wire:model.debounce.500ms="search" type="text" class="ml-4 w-75 border-top-0 border-left-0 border-right-0 "
         placeholder="Search">
 
+
+    <div wire:loading class="spinner-border spinner-border-sm position-absolute" style="right:18px;top:5px"
+        role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
     <div class="position-absolute" style="top:0;width:20px;">
 
         <svg viewBox="0 0 18 18">
@@ -12,15 +18,30 @@
     </div>
 
     <div class="position-absolute text-sm mt-4 w-100 ">
+
+        @if (count($searchResultsUser)>0)
+
         <ul class="navbar-nav ml-4">
-            @foreach ($searchResults as $result)
+            @foreach ($searchResultsUser as $user)
 
 
-            <li class="border-bottom w-75">
-                <a href="#" class="text-dark  d-block">{{$result['username']}}</a>
+            <li class="border-bottom w-100 bg-light d-flex align-items-center" style="z-index:1000;">
+                <img src="{{$user->profile->profileImage()}}" class="rounded-circle w-100 mr-1"
+                    style="max-width: 30px;">
+                <a href="/profile/{{ $user->id }}" class="text-dark  d-block">{{$user->username}}</a>
             </li>
             @endforeach
 
         </ul>
+
+
+
+        @elseif(count($searchResultsUser)==0 && !empty($search))
+
+
+        <div class="px-3 py-3 bg-light">No results for "{{$search}}"</div>
+
+
+        @endif
     </div>
 </div>

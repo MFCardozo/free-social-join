@@ -51,7 +51,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto align-items-baseline" style="flex-direction: row;">
                         <!-- Authentication Links -->
                         <li class="d-flex align-items-center mb-2 mb-md-0">
                             <livewire:search-dropdown>
@@ -83,7 +83,8 @@
                                     class="rounded-circle w-100 ml-2" style="max-width: 40px;max-height:40px;">
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-right position-absolute"
+                                aria-labelledby="navbarDropdown">
 
                                 <a class="dropdown-item" href="/profile/{{Auth::user()->id}}">
                                     {{ __('My Profile') }}

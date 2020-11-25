@@ -10,20 +10,22 @@ class SearchDropdown extends Component
     public $search = '';
     public function render()
     {
-        $searchResults=[];
+        $searchResultsUser=[];
 
         if(strlen($this->search)>2){
-
-            $searchResults=User::select('username','profiles.image')
-            ->join('profiles', 'users.id', '=', 'profiles.user_id')
-            ->where('username','LIKE','%'.$this->search.'%')
+//             select('id','username','profiles.image')
+//             ->join('profiles', 'users.id', '=', 'profiles.user_id')
+// ->toArray();
+            $searchResultsUser=User::
+            where('username','LIKE','%'.$this->search.'%')
        ->orWhere('name','LIKE','%'.$this->search.'%')
-       ->get()->toArray();
+       ->take(7)
+       ->get();
         }
 
-        dump($searchResults);
+       
         return view('livewire.search-dropdown',[
-            'searchResults'=>$searchResults,
+            'searchResultsUser'=>$searchResultsUser,
             ]);
     }
 }
