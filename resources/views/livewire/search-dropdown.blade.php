@@ -17,7 +17,7 @@
         </svg>
     </div>
 
-    <div class="position-absolute text-sm mt-4 w-100 ">
+    <div class="position-absolute text-sm mt-2 w-100 ">
 
         @if (count($searchResultsUser)>0)
 
@@ -25,7 +25,7 @@
             @foreach ($searchResultsUser as $user)
 
 
-            <li class="border-bottom w-100 bg-light d-flex align-items-center" style="z-index:1000;">
+            <li class="border-bottom border-dark w-100 bg-light d-flex align-items-center p-1" style="z-index:1000;">
                 <img src="{{$user->profile->profileImage()}}" class="rounded-circle w-100 mr-1"
                     style="max-width: 30px;">
                 <a href="/profile/{{ $user->id }}" class="text-dark  d-block">{{$user->username}}</a>
@@ -39,7 +39,7 @@
         @elseif(count($searchResultsUser)==0 && !empty($search))
 
 
-        <div class="px-3 py-3 bg-light">No results for "{{$search}}"</div>
+        <div class="px-2 py-2 bg-light  border-bottom border-dark">No results for "{{$search}}"</div>
 
 
         @endif
